@@ -1,0 +1,10 @@
+REGISTERED: dipa (Owner)
+LOGIN: dipa (Owner)
+OWNER dipa added a slot
+REGISTERED: abc (Admin)
+LOGIN: abc (Admin)
+OWNER dipa added slot 1 at mirpur 2-4
+CONFIRMATION: 1234 booked slot 1
+USER 1234 booked slot 1
+OWNER dipa added slot 1 | mirpur | 2 hrs | 50 tk/hr
+OWNER dipa added slot 2 | kawla | 3 hrs | 40 tk/hr

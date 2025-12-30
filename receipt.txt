@@ -1,0 +1,9 @@
+
+========== PARKING RECEIPT ==========
+User        : 333
+Location    : kawlaaa
+Hours Booked: 1
+Rate/hour   : 50 TK
+------------------------------------
+TOTAL       : 50 TK
+====================================
