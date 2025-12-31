@@ -7,6 +7,7 @@
 #include "admin1.h"
 #include "user1.h"
 #include "auth1.h"
+#include "utils1.h"
 
 char username[50];
 char password[50];
@@ -16,8 +17,8 @@ void mainMenu() {
     int choice;
     while(1) {
         printf("\n===== SMART PARKING MANAGEMENT SYSTEM =====\n");
-        printf("1. Register\n2. Login\n3. Exit\nChoice: ");
-        scanf("%d",&choice);
+        printf("1. Register\n2. Login\n3. Exit\n");
+        choice = getIntInRange("Choice: ", 1, 3);
 
         switch(choice){
             case 1:

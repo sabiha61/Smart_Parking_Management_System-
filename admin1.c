@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include "data.h"
+#include "utils1.h"
 
 void adminMenu() {
     int choice;
     while(1){
         printf("\n===== ADMIN PANEL =====\n");
-        printf("1. Approve Slots\n2. View All Slots\n3. Set Slot Maintenance (Feature 9)\n4. Logout\nChoice: ");
-        scanf("%d",&choice);
+        printf("1. Approve Slots\n2. View All Slots\n3. Set Slot Maintenance (Feature 9)\n4. Logout\n");
+        choice = getIntInRange("Choice: ", 1, 4);
 
         if(choice==1){
             printf("\nPending Slots:\n");
@@ -18,8 +19,7 @@ void adminMenu() {
                         slots[i].availableHours,
                         slots[i].pricePerHour
                     );
-                    printf("Approve this slot? (1=Yes,0=No): ");
-                    int approve; scanf("%d",&approve);
+                    int approve = getIntInRange("Approve this slot? (1=Yes,0=No): ", 0, 1);
                     if(approve) slots[i].isApproved=1;
                 }
             }
@@ -46,9 +46,8 @@ void adminMenu() {
         }
         else if(choice==3){
             // Feature 9: Set Slot Maintenance Status
-            int slotId, maintChoice;
-            printf("Enter Slot ID: "); scanf("%d",&slotId);
-            printf("Set status - 0=Available, 2=Maintenance: "); scanf("%d",&maintChoice);
+            int slotId = getValidInt("Enter Slot ID: ");
+            int maintChoice = getIntInRange("Set status - 0=Available, 2=Maintenance: ", 0, 2);
             
             for(int i=0; i<slotCount; i++){
                 if(slots[i].id == slotId){

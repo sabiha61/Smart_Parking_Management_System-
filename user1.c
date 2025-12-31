@@ -2,6 +2,7 @@
 #include <string.h>
 #include "data.h"
 #include "booking1.h"
+#include "utils1.h"
 
 extern char username[50];
 
@@ -9,8 +10,8 @@ void userMenu() {
     int choice;
     while(1){
         printf("\n===== USER PANEL =====\n");
-        printf("1. View Available Slots\n2. Search Slots by Location (Feature 11)\n3. Book Slot\n4. Logout\nChoice: ");
-        scanf("%d",&choice);
+        printf("1. View Available Slots\n2. Search Slots by Location (Feature 11)\n3. Book Slot\n4. Logout\n");
+        choice = getIntInRange("Choice: ", 1, 4);
 
         if(choice==1){
             printf("\nAvailable Slots:\n");
@@ -51,11 +52,10 @@ void userMenu() {
             if(!found) printf("No slots found near '%s'\n", searchLocation);
         }
         else if(choice==3){
-            int slotId,hours;
+            int slotId = getValidInt("Enter Slot ID to book: ");
             char vehicleType[20];
-            printf("Enter Slot ID to book: "); scanf("%d",&slotId);
             printf("Enter your vehicle type (Car/Bike/Truck): "); scanf("%s",vehicleType);
-            printf("Enter hours to book: "); scanf("%d",&hours);
+            int hours = getValidInt("Enter hours to book: ");
             bookSlot1(slotId,hours,vehicleType);
         }
         else if(choice==4) return;
