@@ -23,7 +23,10 @@ void ownerMenu() {
             printf("Enter available hours: "); scanf("%d",&s.availableHours);
             printf("Enter start time (hour): "); scanf("%d",&s.startTime);
             printf("Enter end time (hour): "); scanf("%d",&s.endTime);
+            printf("Enter vehicle type (Car/Bike/Truck/Any): "); scanf("%s",s.vehicleType);
             s.isApproved = 0; // pending
+            s.status = 0; // Available (Feature 9)
+            s.lastUsedDate = 0; // Feature 10
             strcpy(s.bookedBy,"None");
             s.lastBookedHours = 0;
 
@@ -33,12 +36,20 @@ void ownerMenu() {
         else if(choice==2){
             printf("\nYour Slots:\n");
             for(int i=0;i<slotCount;i++){
-                printf("ID:%d | %s | %d hrs | %d tk/hr | %s\n",
+                char statusStr[20];
+                if(slots[i].status == 0) strcpy(statusStr, "Available");
+                else if(slots[i].status == 1) strcpy(statusStr, "Booked");
+                else if(slots[i].status == 2) strcpy(statusStr, "Maintenance");
+                else strcpy(statusStr, "Inactive");
+                
+                printf("ID:%d | %s | %s | %d hrs | %d tk/hr | %s | %s\n",
                     slots[i].id,
                     slots[i].location,
+                    slots[i].vehicleType,
                     slots[i].availableHours,
                     slots[i].pricePerHour,
-                    slots[i].isApproved ? "Approved":"Pending"
+                    slots[i].isApproved ? "Approved":"Pending",
+                    statusStr
                 );
             }
         }
