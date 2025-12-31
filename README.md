@@ -227,7 +227,6 @@ Enter price per hour: 50
 Enter available hours: 24
 Enter start time (hour): 8
 Enter end time (hour): 22
-Enter vehicle type (Car/Bike/Truck/Any): Car
 Slot added successfully. Pending admin approval.
 ```
 
